@@ -20,6 +20,7 @@ for i in list_links:
                 sleep(5)
                 text = driver.find_element_by_xpath("/html/body").text
                 data.append(text.count(keyword))
+                driver.back()
 
 
 sleep(3000)
