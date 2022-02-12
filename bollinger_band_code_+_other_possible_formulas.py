@@ -12,6 +12,7 @@ import numpy as np
 import math
 
 #<<THIS WILL BE BASED ON THE ORGANIZED DATA FROM PANDAS>>
+#<<ALSO PLZ HELP WITH MAKING THIS A CONSTANTLY UPDATING CODE
 
 #//BOLLINGER BAND CALCULATION
 #day_stat=amount of keywords for a particular day
@@ -22,10 +23,10 @@ import math
 #TKW=np.array[empty until data is collected] // typical keywords (based on keywords in a smoothing period)
 
 #//BOLLINGER BAND
-#ref_SMA=TKW.mean()
+#ref_SMA=TKW.rolling(period).mean()
+#SD=TKW.rolling(period).std()
 #bolu=ref_SMA+m*SD
 #bold=ref_SMA-m*SD
-#SD=np.std(TKW)
 
 #//BOLLINGER BAND MONITOR
 #if {the amount of days updates or smth, for example 'stat_num>n'}:
