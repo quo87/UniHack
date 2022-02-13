@@ -2,18 +2,16 @@ from selenium import webdriver
 from time import sleep
 import pandas as pd
 import tkinter as ttk
-from playsound import playsound
-def getKeyword():
-    global word
-    word=keyword.get()
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
+
 
     #print(word)
 GUI = ttk.Tk()
 def startGUI():
     GUI.mainloop()
 
-def output():
-    print()
 
 word = ''
 
@@ -35,7 +33,7 @@ loopy = []
 for i in list_links:
         loopy.append(i.get_attribute('href'))
 
-x = 0
+
 for i in loopy:
         link = str(i)
         print(i)
@@ -53,24 +51,11 @@ for i in loopy:
                 print(data)
 
 
-
-
-
-print(data)
-import matplotlib.pyplot as plt
-import tkinter as tk
-import test
-import pandas as pd
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-
-
-#root = tk.Tk()
 figure = plt.Figure(figsize=(6,5), dpi=100)
 ax = figure.add_subplot(111)
 chart_type = FigureCanvasTkAgg(figure, GUI)
 chart_type.get_tk_widget().pack()
 df = pd.DataFrame(data,range(0,len(data)))
-#print(df)
 df.plot(kind='line', legend=True, ax=ax)
 ax.set_title('Word Count')
 
