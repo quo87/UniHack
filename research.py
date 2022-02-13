@@ -1,13 +1,14 @@
 from selenium import webdriver
 from time import sleep
+data = []
 def extract(keyword):
+        global data
         PATH = "C:\Program Files (x86)\chromedriver.exe"
         driver = webdriver.Chrome(PATH)
         driver.get("https://web.archive.org/web/*/https://www.cnbc.com/finance/")
         sleep(5)
         list_links = driver.find_elements_by_tag_name('a')
         repeats = []
-        data = []
         for i in list_links:
                 link = str(i.get_attribute('href'))
                 print(i.get_attribute('href'))
